@@ -3,21 +3,25 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tecker <tecker@student.42.fr>              +#+  +:+       +#+         #
+#    By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 12:19:12 by tecker            #+#    #+#              #
-#    Updated: 2024/10/17 11:19:30 by tecker           ###   ########.fr        #
+#    Updated: 2024/10/29 23:13:40 by tomecker         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	ClapTrap
+NAME			=	Animal
 
 CC				=	c++
 
 CFLAGS			=	-Wall -Werror -Wextra -std=c++17
 
 SRC_FILES		=	main.cpp \
-					ClapTrap.cpp
+					Animal.cpp \
+					Cat.cpp \
+					Dog.cpp \
+					WrongCat.cpp \
+					WrongAnimal.cpp
 
 OBJ_DIR			=	./obj
 

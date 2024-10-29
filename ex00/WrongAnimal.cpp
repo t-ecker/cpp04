@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,38 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
-    : _type("Animal")
+WrongAnimal::WrongAnimal()
+    : _type("WrongAnimal")
 {
-    std::cout << "(Animal) Default constructer called" << std::endl;    
+    std::cout << "(WrongAnimal) Default constructer called" << std::endl;    
 }
 
-Animal::Animal(const Animal &src)
+WrongAnimal::WrongAnimal(const WrongAnimal &src)
 {
     _type = src.getType();
-    std::cout << "(Animal) Copy Constructor called" << std::endl;
+    std::cout << "(WrongAnimal) Copy Constructor called" << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-    std::cout << "(Animal) Deconstructor called" << std::endl;
+    std::cout << "(WrongAnimal) Deconstructor called" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
     return (_type);
 }
 
-void Animal::makeSound(void) const
+void WrongAnimal::makeSound(void) const
 {
-    std::cout << "Animal Sound..." << std::endl;
+    std::cout << "WrongAnimal Sound..." << std::endl;
 }
 
-Animal &Animal::operator=(const Animal &src)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 {
-    std::cout << "(Animal) Copy assignment operator called" << std::endl;
+    std::cout << "(WrongAnimal) Copy assignment operator called" << std::endl;
     if (this != &src)
     {
         _type = src.getType();

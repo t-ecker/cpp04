@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat()
-    : Animal()
+WrongCat::WrongCat()
+    : WrongAnimal()
 {
-    std::cout << "(Cat) Default constructer called" << std::endl;    
-    _type = "Cat";
+    std::cout << "(WrongCat) Default constructer called" << std::endl;    
+    _type = "WrongCat";
 }
 
-Cat::Cat(const Cat &src)
-    : Animal(src)
+WrongCat::WrongCat(const WrongCat &src)
+    : WrongAnimal(src)
 {
     _type = src.getType();
-    std::cout << "(Cat) Copy Constructor called" << std::endl;
+    std::cout << "(WrongCat) Copy Constructor called" << std::endl;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-    std::cout << "(Cat) Deconstructor called" << std::endl;
+    std::cout << "(WrongCat) Deconstructor called" << std::endl;
 }
 
-void Cat::makeSound(void) const
+void WrongCat::makeSound(void) const
 {
-    std::cout << "Cat Sound..." << std::endl;
+    std::cout << "WrongCat Sound..." << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &src)
+WrongCat &WrongCat::operator=(const WrongCat &src)
 {
-    std::cout << "(Cat) Copy assignment operator called" << std::endl;
+    std::cout << "(WrongCat) Copy assignment operator called" << std::endl;
     if (this != &src)
     {
         _type = src.getType();
