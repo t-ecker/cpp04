@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:02:07 by tecker            #+#    #+#             */
-/*   Updated: 2024/10/30 14:57:37 by tecker           ###   ########.fr       */
+/*   Updated: 2024/10/30 18:15:57 by tomecker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Ice : public AMateria
         Ice();
         ~Ice();
         Ice(const Ice &src);
-        Ice &operator=(const Ice &src);
+        // Ice &operator=(const Ice &src);
         
         Ice* clone() const override;
         void use(ICharacter& target) override;

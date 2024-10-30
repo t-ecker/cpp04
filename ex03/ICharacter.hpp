@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:02:03 by tecker            #+#    #+#             */
-/*   Updated: 2024/10/30 14:02:04 by tecker           ###   ########.fr       */
+/*   Updated: 2024/10/30 19:50:15 by tomecker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <string.h>
 #include <iostream>
-#include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

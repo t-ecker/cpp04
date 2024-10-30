@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tecker <tecker@student.42.fr>              +#+  +:+       +#+         #
+#    By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/26 12:19:12 by tecker            #+#    #+#              #
-#    Updated: 2024/10/30 13:58:33 by tecker           ###   ########.fr        #
+#    Updated: 2024/10/30 20:38:01 by tomecker         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	Animal
+NAME			=	Materia
 
 CC				=	c++
 
@@ -21,7 +21,7 @@ SRC_FILES		=	main.cpp \
 					Character.cpp \
 					Cure.cpp \
 					Ice.cpp \
-					MaterialSource.cpp
+					MateriaSource.cpp
 
 OBJ_DIR			=	./obj
 

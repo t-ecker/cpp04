@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:00:58 by tecker            #+#    #+#             */
-/*   Updated: 2024/10/30 14:57:06 by tecker           ###   ########.fr       */
+/*   Updated: 2024/10/30 18:05:25 by tomecker         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,18 @@ Cure::~Cure()
 Cure::Cure(const Cure &src)
     : AMateria(src)
 {
-    _type = src.getType();
     std::cout << "(Cure) Copy Constructor called" << std::endl;
 }
 
-Cure &Cure::operator=(const Cure &src)
-{
-    std::cout << "(Cure) Copy assignment operator called" << std::endl;
-    if (this != &src)
-    {
-        _type = src.getType();
-    }
-    return (*this);
-}
+// Cure &Cure::operator=(const Cure &src)
+// {
+//     std::cout << "(Cure) Copy assignment operator called" << std::endl;
+//     if (this != &src)
+//     {
+//         _type = src.getType();
+//     }
+//     return (*this);
+// }
 
 
 void Cure::use(ICharacter& target)
