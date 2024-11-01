@@ -3,72 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:00:48 by tecker            #+#    #+#             */
-/*   Updated: 2024/10/31 00:34:28 by tomecker         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:26:52 by tecker           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character()
-	: _name("no-name")
+    : _name("no-name"), _cleanupCount(0)
 {
-	for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
         _inv[i] = nullptr;
+    for (int i = 0; i < 100; i++)
+        _cleanup[i] = nullptr;
     std::cout << "(Character) Default Constructor called" << std::endl;
 }
 Character::Character(std::string name)
-	: _name(name)
+    : _name(name), _cleanupCount(0)
 {
-	for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
         _inv[i] = nullptr;
+    for (int i = 0; i < 100; i++)
+        _cleanup[i] = nullptr;
     std::cout << "(Character) String Constructor called" << std::endl;
 }
 Character::~Character()
 {
-	for (size_t i = 0; i < _cleanup.size(); i++)
-			delete _cleanup[i];
-	_cleanup.clear();
-    std::cout << "(Character) Deconstructor called" << std::endl;
+    for (int i = 0; i < _cleanupCount; i++)
+        delete _cleanup[i];
+    std::cout << "(Character) Destructor called" << std::endl;
 }
 Character::Character(const Character &src)
-	: _name(src.getName())
+    : _name(src.getName()), _cleanupCount(0)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		if (src.getInvSlot(i) != nullptr)
-		{
-			_inv[i] = src.getInvSlot(i)->clone();
-			_cleanup.push_back(_inv[i]);
-		}
-		else
-			_inv[i] = nullptr;
-	}
+    for (int i = 0; i < 4; i++)
+    {
+        if (src.getInvSlot(i) != nullptr)
+        {
+            _inv[i] = src.getInvSlot(i)->clone();
+            _cleanup[_cleanupCount++] = _inv[i];
+        }
+        else
+            _inv[i] = nullptr;
+    }
     std::cout << "(Character) Copy Constructor called" << std::endl;
 }
 Character &Character::operator=(const Character &src)
 {
     std::cout << "(Character) Copy assignment operator called" << std::endl;
-	if (this != &src)
-	{
-		_name = src.getName();
-		for (size_t i = 0; i < _cleanup.size(); i++)
-			delete _cleanup[i];
-		_cleanup.clear();
-		for (int i = 0; i < 4; i++)
-		{
-			if (src.getInvSlot(i) != nullptr)
-			{
-				_inv[i] = src.getInvSlot(i)->clone();
-				_cleanup.push_back(_inv[i]);
-			}
-			else
-				_inv[i] = nullptr;
-		}
-	}
-	return (*this);
+    if (this != &src)
+    {
+        _name = src.getName();
+        for (int i = 0; i < _cleanupCount; i++)
+            delete _cleanup[i];
+        _cleanupCount = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (src.getInvSlot(i) != nullptr)
+            {
+                _inv[i] = src.getInvSlot(i)->clone();
+                _cleanup[_cleanupCount++] = _inv[i];
+            }
+            else
+                _inv[i] = nullptr;
+        }
+    }
+    return (*this);
 }
 
 AMateria *Character::getInvSlot(int i) const
@@ -85,13 +89,24 @@ std::string const &Character::getName() const
 }
 void Character::equip(AMateria* m)
 {
-	int slot = 0;
-	while (slot < 4 && _inv[slot] != nullptr)
-		slot++;
-	if (slot < 4)
-		_inv[slot] = m;
-	_cleanup.push_back(m);
+    if (_cleanupCount < 100)
+	{
+        int slot = 0;
+        while (slot < 4 && _inv[slot] != nullptr)
+            slot++;
+			
+        if (slot < 4)
+		{
+            _inv[slot] = m;
+            _cleanup[_cleanupCount++] = m;
+        }
+		else
+            delete m;
+    }
+	else
+        delete m;
 }
+
 void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx <= 3)

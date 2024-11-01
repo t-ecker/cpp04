@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:02:16 by tecker            #+#    #+#             */
-/*   Updated: 2024/10/30 21:39:55 by tomecker         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:15:11 by tecker           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Character : public ICharacter
 	private:
 		std::string _name;
 		AMateria *_inv[4];
-		std::vector<AMateria*> _cleanup;
+		AMateria* _cleanup[100];
+		int _cleanupCount;
 	public:
 		Character();
 		Character(std::string name);

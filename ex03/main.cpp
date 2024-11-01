@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tomecker <tomecker@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tecker <tecker@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:01:30 by tecker            #+#    #+#             */
-/*   Updated: 2024/10/31 00:34:33 by tomecker         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:27:15 by tecker           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main()
 	}
 
 	{
-        std::cout << "\nNEW\n" << std::endl;
+        std::cout << "\nPART 2\n" << std::endl;
         
 		IMateriaSource *src = new MateriaSource();
 		src->learnMateria(new Ice());
